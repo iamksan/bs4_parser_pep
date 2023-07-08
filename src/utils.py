@@ -18,7 +18,7 @@ def get_response(session, url):
         )
 
 
-def find_tag(soup, tag=None, attrs=None, **kwargs) -> bs4.element.Tag:
+def find_tag(soup, tag=None, attrs=None, **kwargs):
     searched_tag = soup.find(tag, attrs=(attrs or {}), **kwargs)
     if searched_tag is None:
         error_msg = f'Не найден тег {tag} {attrs}'
