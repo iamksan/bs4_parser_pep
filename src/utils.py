@@ -1,6 +1,5 @@
 import logging
 
-import bs4
 from requests import RequestException
 
 from exceptions import ParserFindTagException
