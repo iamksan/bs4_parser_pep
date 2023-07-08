@@ -143,7 +143,7 @@ def pep(session):
             find_next_sibling('dd').text
         )
         status_sum[status_on_page] = status_sum.get(status_on_page, 0) + 1
-        
+
         if (
                 status_on_page not in
                 EXPECTED_STATUS.get(status_in_table, ('Unexpected status',))
