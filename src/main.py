@@ -142,18 +142,17 @@ def pep(session):
             find_tag(cart_tag, string='Status').parent.
             find_next_sibling('dd').text
         )
-        status_sum[status_on_page] = status_sum.get(status_on_page, 0) + 1
-
         if (
                 status_on_page not in
                 EXPECTED_STATUS.get(status_in_table, ('Unexpected status',))
         ):
             logging.info(
-                f'Несовпадающие статусы:\n'
+                'Несовпадающие статусы:\n'
                 f'{current_pep_url}\n'
                 f'Статус в карточке: {status_on_page}\n'
                 f'Ожидаемые статусы: {EXPECTED_STATUS[status_in_table]}'
             )
+    status_sum[status_on_page] = status_sum.get(status_on_page, 0) + 1
     results.extend(status_sum.items())
     results.append(('Total', total_peps))
     return results
